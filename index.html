@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="index.js"></script>
+		<style>
+			#speechinput {
+				width: 25px;
+				height: 25px;
+				cursor: pointer;
+				border: none;
+				position: absolute;
+				margin-left: 5px;
+				outline: none;
+				background: transparent;
+			}
+			#mytextarea {
+				height: 300px;
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="mytextarea"></textarea>
+		<input id="speechinput" x-webkit-speech />
+	</body>
+	<script>
+		var mic = document.getElementById('speechinput');
+		mic.onfocus = mic.blur;
+		mic.onwebkitspeechchange = function (e) {
+			document.getElementById('mytextarea').value = speechinput.value;
+		};
+	</script>
+</html>
